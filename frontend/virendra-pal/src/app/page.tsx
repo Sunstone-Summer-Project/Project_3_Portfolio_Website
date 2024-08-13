@@ -6,6 +6,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { BackgroundBeams } from "../components/ui/background-beams";
+import { cn } from "@/lib/utils";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -17,11 +18,12 @@ export default function Page() {
     <main className="flex flex-col min-h-[100dvh] space-y-10">
 
 
+
       <BackgroundBeams />
 
 
-
       <section id="hero">
+
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">

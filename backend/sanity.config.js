@@ -2,8 +2,8 @@ import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
 import { visionTool } from '@sanity/vision';
 import authorSchema from '/schemaTypes/authorSchema.js';
-
 import blog from './schemaTypes/blog';
+
 
 export default defineConfig({
   name: 'default',

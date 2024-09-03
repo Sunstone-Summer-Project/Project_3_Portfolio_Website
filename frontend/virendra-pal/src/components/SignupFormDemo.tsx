@@ -4,8 +4,12 @@ import { signUp, logIn, logOut } from '../data/authFunctions'; // Adjust the pat
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../lib/firebaseConfig"; // Import your Firebase auth instance
 import { IconBrandGoogle } from '@tabler/icons-react';
+import axios from 'axios';
 
 const SignupFormDemo = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,12 +19,13 @@ const SignupFormDemo = () => {
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await signUp(email, password);
+      await signUp(email, password); // Firebase signup
+      await axios.post('http://localhost:4000/register', { firstName, lastName, phoneNumber, email, password });
       setIsLoggedIn(true);
       alert('Sign Up Successful!');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Sign Up Error:', error);
-      setError('Sign Up Failed!');
+      setError(error.response?.data?.msg || 'Sign Up Failed!');
     }
   };
 
@@ -30,7 +35,7 @@ const SignupFormDemo = () => {
       await logIn(email, password);
       setIsLoggedIn(true);
       alert('Log In Successful!');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Log In Error:', error);
       setError('Log In Failed!');
     }
@@ -41,7 +46,7 @@ const SignupFormDemo = () => {
       await logOut();
       setIsLoggedIn(false);
       alert('Logged Out Successfully!');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Log Out Error:', error);
       setError('Log Out Failed!');
     }
@@ -53,12 +58,13 @@ const SignupFormDemo = () => {
       await signInWithPopup(auth, provider);
       setIsLoggedIn(true);
       alert('Google Sign-In Successful!');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Google Sign-In Error:', error);
       setError('Google Sign-In Failed!');
     }
   };
 
+  // Render the signup/login form or logout button
   return (
     <div className="max-w-md w-full border-black border-[1px] mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
@@ -80,6 +86,40 @@ const SignupFormDemo = () => {
           onSubmit={formType === 'signUp' ? handleSignUp : handleLogIn}
           className="my-8"
         >
+          {/* Form fields for first name, last name, phone number, email, and password */}
+          <div className="flex flex-col space-y-2 mb-4">
+            <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
+            <input
+              id="firstName"
+              type="text"
+              placeholder="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className="border rounded-md p-2"
+            />
+          </div>
+          <div className="flex flex-col space-y-2 mb-4">
+            <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
+            <input
+              id="lastName"
+              type="text"
+              placeholder="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className="border rounded-md p-2"
+            />
+          </div>
+          <div className="flex flex-col space-y-2 mb-4">
+            <label htmlFor="phoneNumber" className="text-sm font-medium">Phone Number</label>
+            <input
+              id="phoneNumber"
+              type="text"
+              placeholder="Phone Number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              className="border rounded-md p-2"
+            />
+          </div>
           <div className="flex flex-col space-y-2 mb-4">
             <label htmlFor="email" className="text-sm font-medium">Email Address</label>
             <input
@@ -117,28 +157,20 @@ const SignupFormDemo = () => {
               {formType === 'signUp' ? 'Already have an account? Log In' : "Don't have an account? Sign Up"}
             </button>
           </div>
-          <div className="flex flex-col space-y-4 relative top-[16px]">
-            <button
-              className="relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
-              type="button"
-              onClick={handleGoogleSignIn}
-            >
-              <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-              <span className="text-neutral-700 dark:text-neutral-300 text-sm">
-                Sign in with Google
-              </span>
-            </button>
-
-          </div>
         </form>
       ) : (
-        <button
-          onClick={handleLogOut}
-          className="bg-red-600 text-white rounded-md h-10 w-full"
-        >
+        <button onClick={handleLogOut} className="bg-red-500 text-white p-2 rounded-md">
           Log Out
         </button>
       )}
+
+      {/* Google Sign-In Button */}
+      <div className="my-4">
+        <button onClick={handleGoogleSignIn} className="flex items-center justify-center space-x-2 bg-blue-500 text-white py-2 px-4 rounded-md">
+          <IconBrandGoogle />
+          <span>{isLoggedIn ? 'Continue with Google' : 'Sign In with Google'}</span>
+        </button>
+      </div>
     </div>
   );
 };

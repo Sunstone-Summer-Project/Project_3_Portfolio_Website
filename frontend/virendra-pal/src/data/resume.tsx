@@ -31,8 +31,8 @@ export const DATA = {
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
   ],
   contact: {
-    email: "hello@example.com",
-    tel: "+123456789",
+    email: "palv09172@gmail.com",
+    tel: "+917307544335",
     social: {
       GitHub: {
         name: "GitHub",
@@ -63,11 +63,12 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "#",
+        url: "https://mail.google.com/mail/u/0/",
         icon: Icons.email,
-
-        navbar: false,
+  
+        navbar: true,
       },
+    
     },
   },
 
@@ -149,14 +150,13 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/game.png",
-      video:
-        "",
+      image: "",
+      video: "/video/tic.webm",
     },
     {
       title: "X Clone UI",
       href: "https://mausi.freewebhostmost.com/",
-      dates: "June 2023 - Present",
+      dates: "May 2024 - Present",
       active: true,
       description:
         "This project is a user interface (UI) clone of the X platform, meticulously recreated using Tailwind CSS. Tailwind CSS, a utility-first CSS framework, was employed to build this responsive and visually appealing UI with minimal custom CSS",
@@ -174,8 +174,83 @@ export const DATA = {
         },
        
       ],
-      image: "/x.png",
-      video: "",
+      image: "",
+      video: "/video/x.webm",
+    },
+    {
+      title: "PassOP",
+      href: "https://github.com/viredra284402/passop-local",
+      dates: "June 2024 - Present",
+      active: true,
+      description:
+        "PassOP is a secure password manager built with HTML, Tailwind CSS, JavaScript, and Next.js. It stores your sensitive data safely in local storage, offering an intuitive and reliable solution for managing passwords.",
+      technologies: [
+        "Html",
+        "Javascript",
+        'Tailwind Css',
+        'Next js'
+        
+      ],
+      links: [
+     
+        {
+          type: "Website",
+          href: "https://passop-local.vercel.app/",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/video/passop.webm",
+    },
+    {
+      title: "iTask",
+      href: "https://github.com/viredra284402/Game",
+      dates: "July 2024 - Present",
+      active: true,
+      description:
+        "iTask is a simple and stylish to-do list app developed with HTML, Tailwind CSS, JavaScript, and React.js. It provides a clean interface for efficiently managing tasks, with a modern design and smooth functionality.",
+      technologies: [
+        "Html",
+        "javascript",
+        'Tailwind Css',
+        'React js'
+        
+      ],
+      links: [
+     
+        {
+          type: "Source",
+          href: "https://github.com/viredra284402/Game",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/video/todo.webm",
+    },
+    {
+      title: "Spotify Clone ",
+      href: "https://github.com/viredra284402/SpotifyClone",
+      dates: "April 2024 - Present",
+      active: true,
+      description:
+        "A Spotify clone built with HTML, CSS, and JavaScript, replicating the original UI and providing basic music player functionality. Features include responsive design, playback controls, and a search bar.",
+      technologies: [
+        "Html",
+        "javascript",
+        'Css',
+        
+        
+      ],
+      links: [
+     
+        {
+          type: "Website",
+          href: "https://spotify-clone-xi-khaki.vercel.app/",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/video/spot.webm",
     },
     
   ],

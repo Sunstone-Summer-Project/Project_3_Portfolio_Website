@@ -231,6 +231,7 @@ export default function Page() {
               </h2>
               <GlobeDemo />
             </div>
+            
           </BlurFade>
         </div>
       </section>

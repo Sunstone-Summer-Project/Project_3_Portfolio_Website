@@ -63,7 +63,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "https://mail.google.com/mail/u/0/",
+        url: "mailto:palv09172@gmail.com",
         icon: Icons.email,
   
         navbar: true,
@@ -257,8 +257,8 @@ export const DATA = {
   hackathons: [
     {
       title: "Hack Western 5",
-      dates: "November 23rd - 25th, 2018",
-      location: "London, Ontario",
+      dates: "November 23rd - 25th, 2013",
+      location: "India, Indore",
       description:
         "Developed a mobile application which delivered bedtime stories to children using augmented reality.",
       image:
@@ -268,8 +268,8 @@ export const DATA = {
     },
     {
       title: "Hack The North",
-      dates: "September 14th - 16th, 2018",
-      location: "Waterloo, Ontario",
+      dates: "September 14th - 16th, 2013",
+      location: "Indore, Indore",
       description:
         "Developed a mobile application which delivers university campus wide events in real time to all students.",
       image:

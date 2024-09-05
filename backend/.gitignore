@@ -28,6 +28,13 @@ studio/.env.local
 studio/.env.development
 studio/.env.test
 studio/.env.production
+studio/schemas/
+studio/deskStructure.js
+studio/dist/
+studio/public/
+
+# Coverage directory for testing
+coverage/
 
 # OS specific files
 .DS_Store
@@ -45,10 +52,19 @@ Thumbs.db
 *.tmp
 *.swp
 *.swo
+tmp/
+temp/
 
 # System files
 *.bak
 *.orig
+
+# Binary files
+*.exe
+*.dll
+
+# npm cache
+.npm/
 
 # Others
 *.patch

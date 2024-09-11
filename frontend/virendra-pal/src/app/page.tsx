@@ -135,6 +135,26 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <section id="download-cv">
+  <div className="flex min-h-0 flex-col gap-y-3">
+    {/* Title */}
+    <BlurFade delay={BLUR_FADE_DELAY * 11}>
+      <h2 className="text-xl font-bold">Download CV</h2>
+    </BlurFade>
+    
+    {/* Download Button */}
+    <div className="flex gap-2">
+      <BlurFade delay={BLUR_FADE_DELAY * 12}>
+        <a href="/Virendra_Pal_cv_3313.pdf" download>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded">
+            Download CV
+          </button>
+        </a>
+      </BlurFade>
+    </div>
+  </div>
+</section>
+
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>

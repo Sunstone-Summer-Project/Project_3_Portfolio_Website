@@ -18,7 +18,7 @@ app.use(bodyParser.json()); // Use body-parser to parse JSON requests
 
 // Routes
 app.post('/register', async (req, res) => {
-  const { firstName, lastName, phoneNumber, email, password } = req.body;
+  const { firstName, lastName, phoneNumber, email, password, message } = req.body; // Include the message field in request body
 
   try {
     // Check if the user already exists
@@ -31,13 +31,14 @@ app.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // Create a new user
+    // Create a new user with the message field
     let user = new User({
       firstName,
       lastName,
       phoneNumber,
       email,
       password: hashedPassword,
+      message // Add message field to the user object
     });
 
     await user.save();

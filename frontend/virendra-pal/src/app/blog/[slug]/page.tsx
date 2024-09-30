@@ -4,13 +4,23 @@ import { format } from "date-fns";
 import { Suspense } from "react";
 import { PortableText } from "@portabletext/react";
 import { urlFor } from "@/lib/sanityClient"; // Import the urlFor function
+import Image from 'next/image'; // Import the Image component from next/image
 
 const components = {
   types: {
     image: ({ value }: { value: any }) => {
       if (!value) return null;
       const imageUrl = urlFor(value).url(); // Ensure this returns a valid URL
-      return <img src={imageUrl} alt={value.alt || "Blog image"} />;
+      return (
+        <div style={{ position: 'relative', width: '100%', height: '500px' }}>
+          <Image
+            src={imageUrl}
+            alt={value.alt || "Blog image"}
+            fill // Use fill to make the image responsive
+            style={{ objectFit: 'cover' }} // Ensure the image covers the container
+          />
+        </div>
+      );
     },
   },
 };
